@@ -1,6 +1,6 @@
 NAME=libft.a
 FLAGS=-Wall -Wextra -Werror
-#faltan funciones
+
 FUNCTIONS=	ft_isalpha.c \
 			ft_isdigit.c \
 			ft_isalnum.c \
@@ -41,15 +41,19 @@ FUNCTIONS_BONUS=	ft_lstnew_bonus.c \
 					ft_lstadd_back_bonus.c \
 					ft_lstadd_front_bonus.c \
 					ft_lstlast_bonus.c \
-					ft_lstsize_bonus.c
-
+					ft_lstsize_bonus.c \
+					ft_lstdelone_bonus.c \
+					ft_lstclear_bonus.c \
+					ft_lstiter_bonus.c \
+					ft_lstmap_bonus.c
 OBJ_BONUS= $(FUNCTIONS_BONUS:%.c=%.o)
 
+#create library
 all: $(NAME)
-$(NAME): $(OBJ) #create library
+$(NAME): $(OBJ)
 	ar crs $(NAME) $^
-
-bonus: $(OBJ) $(OBJ_BONUS) #create library with Bonus
+#create library with Bonus
+bonus: $(OBJ) $(OBJ_BONUS)
 	ar crs $(NAME) $^
 
 %.o: %.c
